@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  simpleloginapp:
+    image: "simpleloginapp:B${BUILD_NUMBER}"
+    build:
+      context: .
+  integration:
+    depends_on:
+      - simpleloginapp
+    image: "simpleloginapp:test-B${BUILD_NUMBER}"
+    build:
+      context: .
+      dockerfile: Dockerfile.Integration
+    environment:
+      - TEAMCITY_PROJECT_NAME

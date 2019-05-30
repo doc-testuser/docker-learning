@@ -1,0 +1,9 @@
+version: '3.0'
+
+services:
+   simpleloginapp:
+     image: simpleloginapp
+     build:
+       context: .
+     ports:
+       - "8080:80"
