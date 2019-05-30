@@ -6,12 +6,12 @@ node('docker') {
 	}
     stage ('Build & UnitTest')
 	 {
-        sh "docker build -t simpleloginapp:B${BUILD_NUMBER} -f "SimpleLogin/SimpleLogin/Dockerfile" ."
-        sh "docker build -t simpleloginapp:test-B${BUILD_NUMBER} -f "SimpleLogin/SimpleLogin/Dockerfile.Integration" ."
+        sh "docker build -t simpleloginapp:B${BUILD_NUMBER} -f SimpleLogin/SimpleLogin/Dockerfile ."
+        sh "docker build -t simpleloginapp:test-B${BUILD_NUMBER} -f SimpleLogin/SimpleLogin/Dockerfile.Integration ."
      }
     stage ('Integration Test')
 	{
-        sh "docker-compose -f /SimpleLogin/SimpleLogin/docker-compose.integration.yml up --force-recreate --abort-on-container-exit"
-        sh "docker-compose -f /SimpleLogin/SimpleLogin/docker-compose.integration.yml down -v"
+        sh "docker-compose -f SimpleLogin/SimpleLogin/docker-compose.integration.yml up --force-recreate --abort-on-container-exit"
+        sh "docker-compose -f SimpleLogin/SimpleLogin/docker-compose.integration.yml down -v"
 	}
 }
