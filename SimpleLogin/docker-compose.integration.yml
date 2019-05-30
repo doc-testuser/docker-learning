@@ -13,4 +13,4 @@ services:
       context: .
       dockerfile: Dockerfile.Integration
     environment:
-      - TEAMCITY_PROJECT_NAME
+      - PROJECT_NAME
