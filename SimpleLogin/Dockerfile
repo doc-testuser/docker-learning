@@ -22,4 +22,6 @@ COPY --from=build-image /publish .
 
 COPY --from=build-image /TestResults /TestResults
 
+ENV PROJECT_NAME = ${PROJECT_NAME}
+
 ENTRYPOINT ["dotnet", "SimpleLogin.dll"]
