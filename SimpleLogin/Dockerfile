@@ -12,7 +12,7 @@ COPY . .
 
 #RUN dotnet test --verbosity=normal --results-directory /TestResults/ --logger "trx;LogFileName=test_results.xml" ./Tests/Tests.csproj
 
-RUN dotnet publish ./SimpleLogin.csproj -o /publish/
+RUN dotnet publish ./SimpleLogin/SimpleLogin.csproj -o /publish/
 
 FROM microsoft/aspnetcore
 
