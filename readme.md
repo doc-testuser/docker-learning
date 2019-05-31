@@ -25,3 +25,5 @@ Copy files from docker to local
 Install MSTestRunner
 
 https://docs.docker.com/engine/reference/commandline/run/
+
+test
